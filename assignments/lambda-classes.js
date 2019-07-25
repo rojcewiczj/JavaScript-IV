@@ -34,7 +34,7 @@ class Student extends Person {
         this.previousBackground = attr.previousBackground;
         this.className = attr.className;
         this.favSubjects = attr.favSubjects;
-        this.grade = Math.floor((Math.random() * 100) + 1);
+        this.grade = attr.grade;
     }
     listsSubjects() {
         console.log( `${this.favSubjects.join (' ')}`)
@@ -70,3 +70,57 @@ class ProjectManagers extends Instructor {
     }
 
 }
+const John = new Instructor({
+    name: 'John',
+    location: 'New York',
+    age: 45,
+    favLanguage: 'Java',
+    specialty: 'UX',
+    catchPhrase: `whats up ma'dude?`
+  });
+  const Sarah = new Instructor({
+    name: 'Sarah',
+    location: 'Chicago',
+    age: 35,
+    favLanguage: 'C++',
+    specialty: 'front-end',
+    catchPhrase: `are you for real?`
+  });
+  const Jose = new Student({
+    name: 'Jose',
+    location: 'Texas',
+    age: 25,
+    previousBackground: "bird watching",
+    className: "webDev",
+    favSubjects: ["historical re-enactment", "pottery", "horse racing"],
+    grade: Math.floor((Math.random() * 100) + 1),
+  });
+  const Emma = new Student({
+    name: 'Emma',
+    location: 'New Orleans',
+    age: 28,
+    previousBackground: "dog trainer",
+    className: "UX",
+    favSubjects: ["science", "math", "history"],
+    grade: Math.floor((Math.random() * 100) + 1),
+  });
+  const Jim = new ProjectManagers({
+    name: 'Jim',
+    location: 'Ohio',
+    age: 43,
+    favLanguage: 'JavaScript',
+    specialty: 'back-end',
+    catchPhrase: `yeaaah...`,
+    gradClassName: "WB22",
+    favInstructor: "Sarah",
+  });
+  const Paul = new ProjectManagers({
+    name: 'Paul',
+    location: 'Virginia',
+    age: 33,
+    favLanguage: 'Python',
+    specialty: 'back-end',
+    catchPhrase: `you know it!`,
+    gradClassName: "WB23",
+    favInstructor: "John",
+  });
