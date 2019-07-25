@@ -52,20 +52,19 @@ class GameObject {
     * Instances of CharacterStats should have all of the same properties as GameObject.
   */
   
-  function Humanoid (attr) {
+  class Humanoid extends CharacterStats {
+      constructor(attr) {
+          super(attr);
     this.team = attr.team;
     this.weapons = attr.weapons;
     this.language = attr.language;
-    CharacterStats.call(this, attr);
-    GameObject.call(this, attr);
   }
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
+ 
   
-  Humanoid.prototype.greet = function () {
+  greet () {
     return `${this.name} offers a greeting in ${this.language}`
   }
-  Humanoid.prototype.death = function () {
-   {
+  death ()  {
       return ` having ${this.healthPoints - 15} health points left , ${this.name} has died`
     }
   }
@@ -142,22 +141,24 @@ class GameObject {
     // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
     // * Create two new objects, one a villain and one a hero and fight it out with methods!
   
-    function Villain (attr) {
-     Humanoid.call(this, attr);
+    class Villain extends Humanoid {
+        constructor(attr){
+     super(attr);
+     
     }
-  
-    Villain.prototype = Object.create(Humanoid.prototype);
-    Villain.prototype.soulStealing = function () { 
+    soulStealing () { 
       return `${this.name} wounded the hero ${DemonSlayer.name}` 
     }
+}
   
-    function Hero (attr) {
-      Humanoid.call(this, attr);
+    class Hero extends Humanoid {
+        constructor(attr){
+       super(attr);
     }
-    Hero.prototype = Object.create(Humanoid.prototype);
-    Hero.prototype.ShieldOfLight = function () {
+    ShieldOfLight() {
       return `${this.name} wounded the villain ${vampire.name}` 
     }
+}
   
     const vampire = new Villain({
       createdAt: new Date(),
