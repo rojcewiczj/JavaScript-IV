@@ -23,6 +23,9 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student} recieves a perfect score on ${subject}`);
     }
+    grading(student) {
+        console.log(student.grade + Math.floor((Math.random() * 100) - 80) )
+    }
 }
 
 class Student extends Person {
@@ -31,6 +34,7 @@ class Student extends Person {
         this.previousBackground = attr.previousBackground;
         this.className = attr.className;
         this.favSubjects = attr.favSubjects;
+        this.grade = Math.floor((Math.random() * 100) + 1);
     }
     listsSubjects() {
         console.log( `${this.favSubjects.join (' ')}`)
@@ -40,6 +44,29 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
+    }
+    graduate(student) {
+        if(student.grade >= 70){
+            console.log("you graduate!")
+        }
+        else {
+            return Instructor.grading(student);
+        }
+    }
+
+}
+
+class ProjectManagers extends Instructor {
+    constructor(attr){
+        super(attr);
+        this.gradClassName = attr.gradClassName;
+        this.favInstructor = attr.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+    }
+    debugsCode(student,subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`)
     }
 
 }
