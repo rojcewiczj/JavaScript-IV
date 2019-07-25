@@ -130,6 +130,8 @@ const John = new Instructor({
   //Students //////////////////////////////////////////////////
 
 
+  const gradeGenerator = Math.floor((Math.random() * 100) + 1);
+
   const Jose = new Student({
     name: 'Jose',
     location: 'Texas',
@@ -137,7 +139,7 @@ const John = new Instructor({
     previousBackground: "bird watching",
     className: "webDev",
     favSubjects: ["historical re-enactment", "pottery", "horse racing"],
-    grade: Math.floor((Math.random() * 100) + 1),
+    grade: gradeGenerator,
   });
   const Emma = new Student({
     name: 'Emma',
@@ -146,7 +148,7 @@ const John = new Instructor({
     previousBackground: "dog trainer",
     className: "UX",
     favSubjects: ["science", "math", "history"],
-    grade: Math.floor((Math.random() * 100) + 1),
+    grade: gradeGenerator,
   });
 
   //Project Managers /////////////////////////////////////////////
@@ -175,6 +177,7 @@ const John = new Instructor({
   
  // testing ///////////////////////////////////////////////////
 
+
 Rachel.speak();
 John.demo("Constructors!");
 Sarah.grade(Jose, 'CSS');
@@ -183,6 +186,10 @@ Jose.listsSubjects();
 Emma.PRAssignment("HTML");
 Jose.sprintChallenge("JavaScript");
 Emma.graduate();
+Paul.standUp('WB22');
+Jim. debugsCode(Jose,"Array Methods");
 
+
+// END /////////////////////////////////////////////////////////
 
 
