@@ -32,7 +32,7 @@ class Instructor extends Person {
         console.log(`${student.name} recieves a perfect score on ${subject}`);
     }
     grading(student) {
-        console.log(student.grade + Math.floor((Math.random() * 100) - 30) )
+        console.log(student.grade + Math.floor((Math.random() * 10) - 10) )
     }
 }
 
@@ -48,8 +48,10 @@ class Student extends Person {
         this.favSubjects = attr.favSubjects;
         this.grade = attr.grade;
     }
-    listsSubjects() {
-        console.log( `${this.favSubjects.join (', ')}`)
+    listsSubjects(i) {
+        for (i = 0; i < this.favSubjects.length ; i ++) {
+        console.log( this.favSubjects[i])
+        }
     }
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`)
