@@ -1,4 +1,8 @@
 // CODE here for your Lambda Classes
+
+//class Person /////////////////////////////////////////
+
+
 class Person {
     constructor(attr){
         this.name = attr.name;
@@ -9,6 +13,10 @@ class Person {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
     }
 }
+
+
+// class Instructor ////////////////////////////////////////
+
 
 class Instructor extends Person {
     constructor(attr) {
@@ -21,12 +29,16 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject) {
-        console.log(`${student} recieves a perfect score on ${subject}`);
+        console.log(`${student.name} recieves a perfect score on ${subject}`);
     }
     grading(student) {
-        console.log(student.grade + Math.floor((Math.random() * 100) - 80) )
+        console.log(student.grade + Math.floor((Math.random() * 100) - 30) )
     }
 }
+
+
+// class Student ///////////////////////////////////////////
+
 
 class Student extends Person {
     constructor(attr) {
@@ -37,7 +49,7 @@ class Student extends Person {
         this.grade = attr.grade;
     }
     listsSubjects() {
-        console.log( `${this.favSubjects.join (' ')}`)
+        console.log( `${this.favSubjects.join (', ')}`)
     }
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`)
@@ -45,16 +57,23 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
-    graduate(student) {
-        if(student.grade >= 70){
+    graduate() {
+        if(this.grade >= 70){
             console.log("you graduate!")
         }
+        else if (this.grade <=69){
+            console.log("umm...theres always the circus!")
+        }
         else {
-            return Instructor.grading(student);
+            return this.grade;
         }
     }
 
 }
+
+// class Project Managers ///////////////////////////////////
+
+
 
 class ProjectManagers extends Instructor {
     constructor(attr){
@@ -70,6 +89,27 @@ class ProjectManagers extends Instructor {
     }
 
 }
+
+/////////////////////////////////////////////////////////////////
+
+
+//People ///////////////////////////////////////////////////////
+
+
+const Rachel = new Person({
+    name: 'Rachel',
+    location: 'New Jeresey',
+    age: 33,
+  });
+  const Dan = new Person({
+    name: 'Dan',
+    location: 'Memphis',
+    age: 69,
+  });
+
+
+// Instructors /////////////////////////////////////////////////
+
 const John = new Instructor({
     name: 'John',
     location: 'New York',
@@ -86,6 +126,10 @@ const John = new Instructor({
     specialty: 'front-end',
     catchPhrase: `are you for real?`
   });
+
+  //Students //////////////////////////////////////////////////
+
+
   const Jose = new Student({
     name: 'Jose',
     location: 'Texas',
@@ -104,6 +148,10 @@ const John = new Instructor({
     favSubjects: ["science", "math", "history"],
     grade: Math.floor((Math.random() * 100) + 1),
   });
+
+  //Project Managers /////////////////////////////////////////////
+
+
   const Jim = new ProjectManagers({
     name: 'Jim',
     location: 'Ohio',
@@ -124,3 +172,17 @@ const John = new Instructor({
     gradClassName: "WB23",
     favInstructor: "John",
   });
+  
+ // testing ///////////////////////////////////////////////////
+
+Rachel.speak();
+John.demo("Constructors!");
+Sarah.grade(Jose, 'CSS');
+John.grading(Emma);
+Jose.listsSubjects();
+Emma.PRAssignment("HTML");
+Jose.sprintChallenge("JavaScript");
+Emma.graduate();
+
+
+
